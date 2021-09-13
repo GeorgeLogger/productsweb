@@ -9,7 +9,7 @@ const Item = require("../../models/Item");
 // @access  Public
 router.get("/", (req, res) => {
   Item.find()
-    .sort({ date: -1 })
+    .sort({ dateAdded: -1 })
     .then((items) => res.json(items));
 });
 
@@ -18,7 +18,11 @@ router.get("/", (req, res) => {
 // @access  Public
 router.post("/", (req, res) => {
   const newItem = new Item({
-    name: req.body.name,
+    title: req.body.title,
+    category: req.body.category,
+    price: req.body.price,
+    imgDir: req.body.imgDir,
+    desc: req.body.desc,
   });
 
   newItem.save().then((item) => res.json(item));

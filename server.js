@@ -22,5 +22,9 @@ mongoose
 const itemRoutes = require("./routes/api/items");
 app.use("/api/items", itemRoutes);
 
+// Images Route using static
+const imagesDir = "./client/public/images";
+app.use("/images", express.static(imagesDir));
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server started on port ${port}`));
