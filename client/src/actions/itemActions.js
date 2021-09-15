@@ -6,6 +6,6 @@ export const getItems = () => (dispatch) => {
 };
 
 export const addItem = (newItem) => (dispatch) => {
-  const action = { type: ADD_ITEM, payload: { newItem } };
+  const action = { type: ADD_ITEM, payload: { ...newItem } };
   dispatch(action);
 };
