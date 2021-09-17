@@ -18,17 +18,17 @@ const ProductList = () => {
       <ItemModal />
       <div className="section-center">
         {items.map((item) => (
-          <Item key={item.id} item={item} />
+          <Item key={item._id} item={item} />
         ))}
       </div>
     </Container>
   );
 };
 
-function Item({ item }) {
+const Item = ({ item }) => {
   return (
     <article className="menu-item">
-      <img src={item.img} className="photo" alt={item.title} />
+      <img src={item.imgDir} className="photo" alt={item.title} />
       <div className="item-info">
         <header>
           <h4>{item.title}</h4>
@@ -38,6 +38,6 @@ function Item({ item }) {
       </div>
     </article>
   );
-}
+};
 
 export default ProductList;

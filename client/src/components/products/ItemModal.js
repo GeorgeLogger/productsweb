@@ -48,7 +48,7 @@ const ItemModal = () => {
       title: state.title,
       category: state.category,
       price: state.price,
-      img: state.img,
+      imgDir: state.img,
       desc: state.desc
     };
     dispatch(addItem(newItem));

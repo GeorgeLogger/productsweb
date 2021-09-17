@@ -28,5 +28,4 @@ const ItemSchema = new Schema({
   },
 });
 
-// Exporting new mongoose model, taking the name and the schema object
 module.exports = Item = mongoose.model('item', ItemSchema);
