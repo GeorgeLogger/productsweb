@@ -11,7 +11,6 @@ import {
   Input,
 } from "reactstrap";
 import { addItem } from "../../actions/itemActions";
-import { v4 as uuid } from "uuid";
 
 const ItemModal = () => {
   const initialState = {
@@ -44,7 +43,6 @@ const ItemModal = () => {
     e.preventDefault();
 
     const newItem = {
-      id: uuid(),
       title: state.title,
       category: state.category,
       price: state.price,
