@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getItems, deleteItem } from "../actions/itemActions";
 import { Container, Button } from "reactstrap";
 import ItemModal from "./products/ItemModal";
+import Items from "./products/Items";
 
 const ProductList = () => {
   const items = useSelector((state) => state.itemReducer.items);
@@ -53,45 +54,12 @@ const ProductList = () => {
         {state.deleteMode ? "Deactivate" : "Activate"} Delete Mode
       </Button>
       <div className="section-center">
-        {items.map((item) => (
-          <Item
-            key={item._id}
-            item={item}
-            deleteMode={state.deleteMode}
-            onDelete={onDelete}
-          />
-        ))}
+        <Items
+          items={items}
+          deleteMode={state.deleteMode}
+          onDelete={onDelete}
+        />
       </div>
-    </Container>
-  );
-};
-
-const Item = ({ item, deleteMode, onDelete }) => {
-  return (
-    <Container>
-      {deleteMode ? (
-        <Button
-          color="danger"
-          size="sm"
-          className="mb-2"
-          onClick={() => {
-            onDelete(item);
-          }}
-        >
-          x
-        </Button>
-      ) : null}
-
-      <article className="menu-item">
-        <img src={item.imgDir} className="photo" alt={item.title} />
-        <div className="item-info">
-          <header>
-            <h4>{item.title}</h4>
-            <h4 className="price">{item.price}</h4>
-          </header>
-          <p className="item-text">{item.desc}</p>
-        </div>
-      </article>
     </Container>
   );
 };
