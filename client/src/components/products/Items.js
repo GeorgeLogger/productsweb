@@ -6,7 +6,7 @@ const Items = ({ items, deleteMode, onDelete }) => {
     <>
       {items.map((item) => (
         <Container key={item._id}>
-          {deleteMode ? (
+          {deleteMode && (
             <Button
               color="danger"
               size="sm"
@@ -17,7 +17,7 @@ const Items = ({ items, deleteMode, onDelete }) => {
             >
               x
             </Button>
-          ) : null}
+          )}
 
           <article className="menu-item">
             <img src={item.imgDir} className="photo" alt={item.title} />

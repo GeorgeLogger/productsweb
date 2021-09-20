@@ -29,6 +29,11 @@ const ItemModal = () => {
     setState({
       ...state,
       modal: !state.modal,
+      title: "",
+      category: "",
+      price: 0,
+      img: "",
+      desc: "",
     });
   };
 
@@ -42,12 +47,27 @@ const ItemModal = () => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    if (
+      state.title === "" ||
+      state.category === "" ||
+      state.price < 1 ||
+      state.imgDir === "" ||
+      state.desc === ""
+    ) {
+      if (state.price < 1) {
+        alert("Price must be higher than 0");
+      } else {
+        alert("All fields must be filled");
+      }
+      return;
+    }
+
     const newItem = {
       title: state.title,
       category: state.category,
       price: state.price,
       imgDir: state.img,
-      desc: state.desc
+      desc: state.desc,
     };
     dispatch(addItem(newItem));
     toggleModal();
@@ -64,13 +84,13 @@ const ItemModal = () => {
         <ModalBody>
           <Form onSubmit={onSubmit}>
             <FormGroup>
-              {/* Add alert functionality for blank fields */}
               <Label for="input-title">Title</Label>
               <Input
                 type="text"
                 name="title"
                 id="input-title"
                 placeholder="Add Item Title"
+                className="mb-3"
                 onChange={onChange}
               />
               <Label for="input-category">Category</Label>
@@ -79,6 +99,7 @@ const ItemModal = () => {
                 name="category"
                 id="input-category"
                 placeholder="Add Category"
+                className="mb-3"
                 onChange={onChange}
               />
               <Label for="input-price">Price</Label>
@@ -87,6 +108,7 @@ const ItemModal = () => {
                 name="price"
                 id="input-price"
                 placeholder="Add Price"
+                className="mb-3"
                 onChange={onChange}
               />
               <Label for="input-img">Img Directory</Label>
@@ -95,6 +117,7 @@ const ItemModal = () => {
                 name="img"
                 id="input-img"
                 placeholder="Add Img Directory"
+                className="mb-3"
                 onChange={onChange}
               />
               <Label for="input-description">Description</Label>
@@ -103,9 +126,10 @@ const ItemModal = () => {
                 name="desc"
                 id="input-desc"
                 placeholder="Add Description"
+                className="mb-3"
                 onChange={onChange}
               />
-              <Button color="dark" style={{ marginTop: "2rem" }} block>
+              <Button color="dark" style={{ marginTop: "1rem" }} block>
                 Add Item
               </Button>
             </FormGroup>
