@@ -6,9 +6,9 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Container,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 class AppNavbar extends Component {
   state = {
@@ -29,13 +29,13 @@ class AppNavbar extends Component {
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ms-auto" navbar>
                 <NavItem>
-                  <NavLink href="#">Home</NavLink>
+                  <Link to="/" className="nav-link">Home</Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#">Our Products</NavLink>
+                  <Link to="/Products" className="nav-link">Our Products</Link>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#">About Us</NavLink>
+                  <Link to="#" className="nav-link">About Us</Link>
                 </NavItem>
               </Nav>
             </Collapse>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Items = ({ items, deleteMode, onDelete }) => {
   return (
-    <>
+    <div className="section-center">
       {items.map((item) => (
         <Container key={item._id}>
           {deleteMode && (
@@ -31,7 +31,7 @@ const Items = ({ items, deleteMode, onDelete }) => {
           </article>
         </Container>
       ))}
-    </>
+    </div>
   );
 };
 

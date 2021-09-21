@@ -9,11 +9,7 @@ import Items from "./products/Items";
 const ProductList = () => {
   const items = useSelector((state) => state.itemReducer.items);
   const dispatch = useDispatch();
-
-  const initialState = {
-    deleteMode: false,
-  };
-  const [state, setState] = useState(initialState);
+  const [deleteMode, setDeleteMode] = useState(false);
 
   useEffect(() => {
     dispatch(getItems());
@@ -26,17 +22,12 @@ const ProductList = () => {
   };
 
   const toggleDeleteMode = () => {
-    const toggle = () => {
-      setState({
-        ...state,
-        deleteMode: !state.deleteMode,
-      });
-    };
-
-    if (!state.deleteMode && window.confirm("Activate delete mode?")) {
-      toggle();
+    if (!deleteMode) {
+      if (window.confirm("Activate delete mode?")) {
+        setDeleteMode(!deleteMode);
+      }
     } else {
-      toggle();
+      setDeleteMode(!deleteMode);
     }
   };
 
@@ -51,15 +42,9 @@ const ProductList = () => {
           toggleDeleteMode();
         }}
       >
-        {state.deleteMode ? "Deactivate" : "Activate"} Delete Mode
+        {deleteMode ? "Deactivate" : "Activate"} Delete Mode
       </Button>
-      <div className="section-center">
-        <Items
-          items={items}
-          deleteMode={state.deleteMode}
-          onDelete={onDelete}
-        />
-      </div>
+      <Items items={items} deleteMode={deleteMode} onDelete={onDelete} />
     </Container>
   );
 };
