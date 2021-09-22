@@ -22,10 +22,8 @@ const ProductList = () => {
   };
 
   const toggleDeleteMode = () => {
-    if (!deleteMode) {
-      if (window.confirm("Activate delete mode?")) {
-        setDeleteMode(!deleteMode);
-      }
+    if (!deleteMode && !window.confirm("Activate delete mode?")) {
+      return;
     } else {
       setDeleteMode(!deleteMode);
     }
@@ -38,9 +36,7 @@ const ProductList = () => {
         color="danger"
         size="sm"
         className="mt-2"
-        onClick={() => {
-          toggleDeleteMode();
-        }}
+        onClick={toggleDeleteMode}
       >
         {deleteMode ? "Deactivate" : "Activate"} Delete Mode
       </Button>
