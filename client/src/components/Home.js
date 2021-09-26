@@ -1,11 +1,15 @@
-import Hero from "./Hero";
-import ContactUs from "./ContactUs";
+import Hero from "./homepage/Hero";
+import Section from "./homepage/Section";
+import Footer from "./homepage/Footer";
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <ContactUs />
+      <Section />
+      <Section />
+      <Footer />
+      {/* Go to Top button */}
     </>
   );
 };

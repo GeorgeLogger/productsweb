@@ -1,0 +1,19 @@
+#footer {
+  color: var(--clr-grey);
+  background-color: black;
+  padding: 20px 0;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-section {
+  border: 2px solid white;
+  width: 100%;
+}
+
+.footer-section ul {
+  list-style: none;
+}
