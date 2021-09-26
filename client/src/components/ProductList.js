@@ -30,18 +30,20 @@ const ProductList = () => {
   };
 
   return (
-    <Container>
-      <ItemModal />
-      <Button
-        color="danger"
-        size="sm"
-        className="mt-2"
-        onClick={toggleDeleteMode}
-      >
-        {deleteMode ? "Deactivate" : "Activate"} Delete Mode
-      </Button>
-      <Items items={items} deleteMode={deleteMode} onDelete={onDelete} />
-    </Container>
+    <>
+      <Container className="py-5">
+        <ItemModal />
+        <Button
+          color="danger"
+          size="sm"
+          className="mt-2"
+          onClick={toggleDeleteMode}
+        >
+          {deleteMode ? "Deactivate" : "Activate"} Delete Mode
+        </Button>
+        <Items items={items} deleteMode={deleteMode} onDelete={onDelete} />
+      </Container>
+    </>
   );
 };
 

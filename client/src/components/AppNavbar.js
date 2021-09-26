@@ -37,8 +37,13 @@ const AppNavbar = () => {
                 </Link>
               </NavItem>
               <NavItem>
-                <Link to="#" className="nav-link">
+                <Link to="/About" className="nav-link">
                   About Us
+                </Link>
+              </NavItem>
+              <NavItem>
+                <Link to="/Contact" className="nav-link">
+                  Contact Us
                 </Link>
               </NavItem>
             </Nav>

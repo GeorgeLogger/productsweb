@@ -1,14 +1,12 @@
 import Hero from "./homepage/Hero";
 import Section from "./homepage/Section";
-import Footer from "./homepage/Footer";
 
 const Home = () => {
   return (
     <>
       <Hero />
-      <Section />
-      <Section />
-      <Footer />
+      <Section section="section1"/>
+      <Section section="section2"/>
       {/* Go to Top button */}
     </>
   );
