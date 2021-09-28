@@ -1,0 +1,36 @@
+.form-group {
+  margin: 16px 0;
+}
+
+.form-group Label {
+  margin-bottom: 5px;
+}
+
+@media (min-width: 62em) {
+  .flex-container {
+    display: flex;
+  }
+
+  .form-banner {
+    margin-left: 1.5em;
+  }
+}
+
+@media (max-width: 62em) {
+  .form-banner {
+    margin: 1.5em 0;
+  }
+}
+
+Form {
+  max-width: 750px;
+  flex: 2;
+}
+
+.form-banner {
+  background-color: var(--clr-gold);
+  color: white;
+  border-radius: var(--radius);
+  padding: 1.5em 1.5em;
+  flex: 1;
+}
