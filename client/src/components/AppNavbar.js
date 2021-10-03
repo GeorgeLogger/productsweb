@@ -20,8 +20,8 @@ const AppNavbar = () => {
     <div>
       <Navbar color="dark" dark expand="sm" className="mb-1">
         <Container>
-          <Link to="/" className="navbar-brand">
-            Products
+          <Link to="/" className="navbar-brand" style={{ color: "var(--clr-brown)" }}>
+            <span style={{ color: "var(--clr-gold)" }}>Life</span>Wheat
           </Link>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>

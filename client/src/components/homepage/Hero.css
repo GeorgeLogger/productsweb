@@ -6,7 +6,7 @@
 
 .hero-container {
   border: 5px solid var(--clr-gold);
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   width: 80vw;
   height: 80vh;
   margin: 0 auto;
@@ -32,5 +32,5 @@
 
 .hero-nav Button{
   display: inline;
-  margin: 1rem 1rem;
+  margin: 1rem 0.5rem;
 }

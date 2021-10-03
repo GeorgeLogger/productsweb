@@ -3,5 +3,6 @@
 :root {
   --clr-grey: hsl(210, 22%, 49%);
   --clr-gold: #c59d5f;
+  --clr-brown: brown;
   --radius: 0.5rem;
 }

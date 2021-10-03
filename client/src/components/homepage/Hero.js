@@ -21,6 +21,7 @@ const Hero = () => {
     },
   ];
 
+  const showControl = false;
   const [activeSlide, setActiveSlide] = useState(0);
   const autoSlide = useRef();
 
@@ -65,7 +66,7 @@ const Hero = () => {
           />
         ))}
       </div>
-      {slides.length > 1 && (
+      {slides.length > 1 && showControl && (
         <div className="hero-nav">
           <Button onClick={PrevSlide}>Prev</Button>
           <Button onClick={NextSlide}>Next</Button>
