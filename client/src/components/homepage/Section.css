@@ -1,21 +1,35 @@
-.home-section{
-    padding: 3em 0;
+.home-section {
+  padding: 3em 0;
 }
 
-@media (min-width: 62em){
-    .section-file{
-        display: flex;
-    }
+@media (min-width: 62em) {
+  .section-file {
+    display: flex;
+  }
 }
 
-.section-file img{
-    max-width: 43em;
-    border-radius: 1em;
+.section-file img {
+  max-width: 43em;
+  border-radius: 1em;
 }
 
-.caption{
-    border: 2px solid black;
-    border-radius: 1em;
-    padding: 1.5em;
-    width: 100%;
+.caption {
+  border: 2px solid black;
+  border-radius: 1em;
+  padding: 1.5em;
+  width: 100%;
+  transition: 0.1s;
+}
+
+.caption:hover {
+  border: 5px solid var(--clr-brown);
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover {
+  color: inherit;
 }

@@ -28,9 +28,29 @@ Form {
 }
 
 .form-banner {
+  position: relative;
   background-color: var(--clr-gold);
-  color: white;
   border-radius: var(--radius);
-  padding: 1.5em 1.5em;
-  flex: 1;
+  flex: 1.2;
+}
+
+.form-banner img{
+  border-radius: var(--radius);
+  object-fit: cover;
+  height: 100%;
+  -webkit-filter: blur(4px);
+  filter: blur(4px);
+}
+
+.form-banner .banner-caption{
+  border: 3px solid #f1f1f1;
+  color: white;
+  background-color: rgba(0,0,0, 0.4);
+  padding: 1.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
 }

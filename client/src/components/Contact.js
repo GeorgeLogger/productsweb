@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Container } from "reactstrap";
 import "./Contact.css";
+import CustomAlert from "./CustomAlert";
 
 const Contact = () => {
+  const [alert, setAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertColor, setAlertColor] = useState("primary");
+
   const initialState = {
     name: "",
     email: "",
@@ -18,22 +23,36 @@ const Contact = () => {
     });
   };
 
+  const toggleAlert = (msg, color) => {
+    setAlert(true);
+    setAlertMessage(msg);
+    setAlertColor(color);
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
-    console.log(
-      `Name: ${state.name}\nEmail: ${state.email}\nMessage: ${state.message}`
-    );
-
-    setState(initialState);
-
-    // summon Modal, your message has been sent
+    if (state.name === "" || state.email === "" || state.message === "") {
+      toggleAlert("Please fill in all the fields", "danger");
+    } else {
+      toggleAlert("Successfully sent your message", "success");
+      console.log(
+        `Name: ${state.name}\nEmail: ${state.email}\nMessage: ${state.message}`
+      );
+      setState(initialState);
+    }
   };
 
   return (
     <>
       <Container className="py-5 flex-container">
         <Form onSubmit={onSubmit}>
+          <CustomAlert
+            toggle={alert}
+            message={alertMessage}
+            color={alertColor}
+          />
+
           <FormGroup>
             <div className="form-group">
               <Label for="input-name">Name</Label>
@@ -77,7 +96,12 @@ const Contact = () => {
           </FormGroup>
         </Form>
 
-        <div className="form-banner">Banner Placeholder</div>
+        <div className="form-banner">
+          <div className="banner-caption">
+            <h2>Inform us of your interest</h2>
+          </div>
+          <img src="/images/bakery-1.jpg" alt="bakery-1" />
+        </div>
       </Container>
     </>
   );
