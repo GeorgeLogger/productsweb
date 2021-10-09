@@ -22,6 +22,9 @@ mongoose
 const itemRoutes = require("./routes/api/items");
 app.use("/api/items", itemRoutes);
 
+const userRoutes = require("./routes/api/users");
+app.use("/api/users", userRoutes);
+
 // Images Route using static
 const imagesDir = "./client/public/images";
 app.use("/images", express.static(imagesDir));

@@ -8,11 +8,13 @@ import ProductList from "./components/ProductList";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/homepage/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
       <div className="app">
+        <ScrollToTop />
         <AppNavbar />
         <Route path="/" exact component={Home} />
         <Route path="/Products" component={ProductList} />
