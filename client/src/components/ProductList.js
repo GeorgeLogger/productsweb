@@ -8,6 +8,9 @@ import Items from "./products/Items";
 
 const ProductList = () => {
   const items = useSelector((state) => state.itemReducer.items);
+  const isAuthenticated = useSelector(
+    (state) => state.authReducer.isAuthenticated
+  );
   const dispatch = useDispatch();
   const [deleteMode, setDeleteMode] = useState(false);
 
@@ -32,16 +35,25 @@ const ProductList = () => {
   return (
     <>
       <Container className="py-5">
-        <ItemModal />
-        <Button
-          color="danger"
-          size="sm"
-          className="mt-2"
-          onClick={toggleDeleteMode}
-        >
-          {deleteMode ? "Deactivate" : "Activate"} Delete Mode
-        </Button>
-        <Items items={items} deleteMode={deleteMode} onDelete={onDelete} />
+        {isAuthenticated && (
+          <>
+            <ItemModal />
+            <Button
+              color="danger"
+              size="sm"
+              className="mt-2"
+              onClick={toggleDeleteMode}
+            >
+              {deleteMode ? "Deactivate" : "Activate"} Delete Mode
+            </Button>
+          </>
+        )}
+
+        <Items
+          items={items}
+          deleteMode={deleteMode && isAuthenticated}
+          onDelete={onDelete}
+        />
       </Container>
     </>
   );

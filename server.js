@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const config = require("config");
 
 const app = express();
 
@@ -7,13 +8,14 @@ const app = express();
 app.use(express.json());
 
 // DB Config
-const db = require("./config/keys").mongoURI;
+const db = config.get("mongoURI");
 
 // Connect to Mongo
 mongoose
   .connect(db, {
     useNewUrlParser: true, // Deprecation fix
     useUnifiedTopology: true, // Deprecation fix
+    useCreateIndex: true, // Deprecation fixed
   })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
@@ -24,6 +26,9 @@ app.use("/api/items", itemRoutes);
 
 const userRoutes = require("./routes/api/users");
 app.use("/api/users", userRoutes);
+
+const authRoutes = require("./routes/api/auth");
+app.use("/api/auth", authRoutes);
 
 // Images Route using static
 const imagesDir = "./client/public/images";

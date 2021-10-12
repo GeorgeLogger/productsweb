@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { Form, FormGroup, Label, Input, Button, Container } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button, Container, Alert } from "reactstrap";
 import "./Contact.css";
-import CustomAlert from "./CustomAlert";
 
 const Contact = () => {
   const [alert, setAlert] = useState(false);
@@ -47,12 +46,7 @@ const Contact = () => {
     <>
       <Container className="py-5 flex-container">
         <Form onSubmit={onSubmit}>
-          <CustomAlert
-            toggle={alert}
-            message={alertMessage}
-            color={alertColor}
-          />
-
+          {alert && <Alert color={alertColor}>{alertMessage}</Alert>}
           <FormGroup>
             <div className="form-group">
               <Label for="input-name">Name</Label>
