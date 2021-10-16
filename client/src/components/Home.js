@@ -10,7 +10,7 @@ const Home = () => {
       <Divider />
       <Section section="section1" />
       <Divider />
-      <Section section="section2" />
+      <Section section="section2" title="Another Example Section" />
       <ToTopButton />
     </>
   );

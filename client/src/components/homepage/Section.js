@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Section.css";
 import { Link } from "react-router-dom";
 
-const Section = ({ section }) => {
+const Section = ({ section, title }) => {
   return (
     <section id={section} className="home-section">
       <Container className="section-file">
@@ -11,7 +11,7 @@ const Section = ({ section }) => {
         <div className="caption">
           <Link to="./Products" className="card-link">
             <div style={{ height: "100%" }}>
-              <h2>Browse our Menu</h2>
+              <h2>{title}</h2>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Pariatur cupiditate beatae ullam. Optio, quidem expedita.
@@ -24,7 +24,12 @@ const Section = ({ section }) => {
   );
 };
 
+Section.defaultProps = {
+  title: "Browse our Menu",
+};
+
 Section.propTypes = {
+  title: PropTypes.string,
   section: PropTypes.string.isRequired,
 };
 
