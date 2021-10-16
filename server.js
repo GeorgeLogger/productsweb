@@ -15,7 +15,7 @@ mongoose
   .connect(db, {
     useNewUrlParser: true, // Deprecation fix
     useUnifiedTopology: true, // Deprecation fix
-    useCreateIndex: true, // Deprecation fixed
+    useCreateIndex: true, // Deprecation fix
   })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log(err));
