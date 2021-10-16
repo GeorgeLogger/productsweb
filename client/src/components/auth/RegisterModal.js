@@ -109,7 +109,7 @@ const RegisterModal = () => {
               />
               <Label for="input-password">Password</Label>
               <Input
-                type="text"
+                type="password"
                 name="password"
                 id="input-password"
                 placeholder="Input your Password"

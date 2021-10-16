@@ -17,6 +17,7 @@ import Logout from "./auth/Logout";
 const AppNavbar = () => {
   const { isAuthenticated, user } = useSelector((state) => state.authReducer);
   const [isOpen, setIsOpen] = useState(false);
+  const [isDev, setDevMode] = useState(false);
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -46,6 +47,10 @@ const AppNavbar = () => {
     </Fragment>
   );
 
+  const toggleDev = () => {
+    setDevMode(!isDev);
+    console.log("test");
+  }
   return (
     <div>
       <Navbar color="dark" dark expand="sm" className="mb-1">
@@ -55,7 +60,7 @@ const AppNavbar = () => {
             className="navbar-brand"
             style={{ color: "var(--clr-brown)" }}
           >
-            <span style={{ color: "var(--clr-gold)" }}>Life</span>Wheat
+            <span style={{ color: "var(--clr-gold)" }}>Life</span>Whea<span onDoubleClick={toggleDev}>t</span>
           </Link>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
@@ -80,7 +85,7 @@ const AppNavbar = () => {
                   Contact Us
                 </Link>
               </NavItem>
-              {isAuthenticated ? authLinks : guestLinks}
+              {isAuthenticated ? authLinks : isDev && guestLinks}
             </Nav>
           </Collapse>
         </Container>
