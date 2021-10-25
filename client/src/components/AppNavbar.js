@@ -10,7 +10,7 @@ import { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import RegisterModal from "./auth/RegisterModal";
+// import RegisterModal from "./auth/RegisterModal";
 import LoginModal from "./auth/Login";
 import Logout from "./auth/Logout";
 
@@ -38,9 +38,9 @@ const AppNavbar = () => {
 
   const guestLinks = (
     <Fragment>
-      <NavItem>
+      {/* <NavItem>
         <RegisterModal />
-      </NavItem>
+      </NavItem> */}
       <NavItem>
         <LoginModal />
       </NavItem>

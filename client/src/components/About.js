@@ -6,6 +6,17 @@ const About = () => {
       <Container className="py-5">
         <section className="about-us">
           <p>
+            <b>
+              This website is created by author to learn how to fully develop a
+              website by using the MERN Stack. Assets are taken from stock
+              websites and none of them are mine. Products page is derived from{" "}
+              <a href="https://youtu.be/3PHXvlpOkf4">
+                John Smilga's Menu tutorial.
+              </a>
+            </b>
+          </p>
+
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia,
             pariatur itaque possimus natus officiis similique nemo deleniti cum
             perspiciatis excepturi hic atque praesentium vero veniam error ad
